@@ -8,16 +8,20 @@ public class Playerclass : MonoBehaviour
     { 
         public plamo()
         {
-
         }
         private Vector2 direction;
+        private bool facingright = true;
         public Rigidbody2D rb;
         public bool Movement(float speed)
         {
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.y = Input.GetAxisRaw("Vertical");
             rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
-            if ((direction.x + direction.y) != 0)
+            if (((!facingright) && (direction.x > 0)) || ((facingright) && (direction.x < 0)))
+            {
+                Flip();
+            }
+            if ((direction.x != 0) || (direction.y != 0))
             {
                 return true;
             }
@@ -25,6 +29,13 @@ public class Playerclass : MonoBehaviour
             {
                 return false;
             }
+        }
+        private void Flip()
+        {
+            facingright = !facingright;
+            Vector3 Scaler = rb.transform.localScale;
+            Scaler.x *= -1;
+            rb.transform.localScale = Scaler;
         }
     }
 }
