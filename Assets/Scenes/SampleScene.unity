@@ -508,8 +508,8 @@ GameObject:
   - component: {fileID: 649983892}
   - component: {fileID: 649983895}
   - component: {fileID: 649983894}
-  - component: {fileID: 649983896}
   - component: {fileID: 649983897}
+  - component: {fileID: 649983898}
   m_Layer: 0
   m_Name: playa
   m_TagString: Player
@@ -542,7 +542,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649983889}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -597,19 +597,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.23168468, y: 0.00000011920929}
   m_Size: {x: 1.3914385, y: 2.9131796}
   m_Direction: 0
---- !u!114 &649983896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649983889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f435e757f0e3a0c41aaf36bf62019730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
 --- !u!95 &649983897
 Animator:
   serializedVersion: 4
@@ -630,6 +617,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &649983898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649983889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f435e757f0e3a0c41aaf36bf62019730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &742305628
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,27 +719,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1444762769396036704, guid: d53510f49187fe346b109f052b9650b2, type: 3}
   m_PrefabInstance: {fileID: 1141814593}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1015294493
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &1015294498
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015294492}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99ed98c4abbdf642a0b0d8f33680b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  stoppingDistance: 6
+  retreatDistance: 3
+  player: {fileID: 0}
 --- !u!1 &1087836308
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,21 +826,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1641070100553370807, guid: d53510f49187fe346b109f052b9650b2, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 722149159151290969, guid: d53510f49187fe346b109f052b9650b2, type: 3}
       propertyPath: m_Size.x
-      value: 1.1243811
+      value: 1.0510116
       objectReference: {fileID: 0}
     - target: {fileID: 722149159151290969, guid: d53510f49187fe346b109f052b9650b2, type: 3}
       propertyPath: m_Size.y
-      value: 1.5996892
+      value: 1.0037241
       objectReference: {fileID: 0}
     - target: {fileID: 722149159151290969, guid: d53510f49187fe346b109f052b9650b2, type: 3}
       propertyPath: m_Offset.x
-      value: -0.062190503
+      value: -0.0071647167
       objectReference: {fileID: 0}
     - target: {fileID: 722149159151290969, guid: d53510f49187fe346b109f052b9650b2, type: 3}
       propertyPath: m_Offset.y
-      value: -0.29984486
+      value: 0.0077502728
+      objectReference: {fileID: 0}
+    - target: {fileID: 722149159151290969, guid: d53510f49187fe346b109f052b9650b2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1444762769396036638, guid: d53510f49187fe346b109f052b9650b2, type: 3}
       propertyPath: m_RootOrder

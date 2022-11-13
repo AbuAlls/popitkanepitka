@@ -12,6 +12,7 @@ public class Playerclass : MonoBehaviour
         private Vector2 direction;
         private bool facingright = true;
         public Rigidbody2D rb;
+
         public bool Movement(float speed)
         {
             direction.x = Input.GetAxisRaw("Horizontal");
