@@ -17,10 +17,7 @@ public class Playerclass : MonoBehaviour
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.y = Input.GetAxisRaw("Vertical");
             rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
-            if (((!facingright) && (direction.x > 0)) || ((facingright) && (direction.x < 0)))
-            {
-                Flip();
-            }
+
             if ((direction.x != 0) || (direction.y != 0))
             {
                 return true;
@@ -30,12 +27,20 @@ public class Playerclass : MonoBehaviour
                 return false;
             }
         }
+        public void rotation()
+        {
+            Vector3 msvect = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (((!facingright) && (rb.position.x < msvect.x )) || ((facingright) && (rb.position.x > msvect.x )))
+            {
+                Flip();
+            }
+        }
         private void Flip()
         {
             facingright = !facingright;
             Vector3 Scaler = rb.transform.localScale;
             Scaler.x *= -1;
-            rb.transform.localScale = Scaler;
+            rb.transform.localScale = Scaler; 
         }
     }
 }

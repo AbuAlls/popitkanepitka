@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playamoves : Playerclass
+public sealed class playamoves : Playerclass
 {
     private plamo playa = new plamo();
     private Animator anim;
@@ -15,5 +15,6 @@ public class playamoves : Playerclass
     private void FixedUpdate()
     {
         anim.SetBool("isrun", playa.Movement(speed));
+        playa.rotation();
     }
 }
